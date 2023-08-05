@@ -4,7 +4,7 @@
 # base system
 ################################################################################
 
-FROM ubuntu:22.04 as system
+FROM ghcr.io/automotiveaichallenge/aichallenge2023-sim/autoware-universe-cuda:v1 as system
 
 
 
@@ -26,7 +26,7 @@ RUN apt update \
 # install debs error if combine together
 RUN apt update \
     && apt install -y --no-install-recommends --allow-unauthenticated \
-        xvfb x11vnc \
+        xvfb x11vnc  x11-xserver-utils\
         vim-tiny firefox fonts-freefont-ttf ttf-wqy-zenhei  \
     && apt autoclean -y \
     && apt autoremove -y \
